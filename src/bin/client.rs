@@ -33,7 +33,7 @@ async fn main() {
 
         let res = resp_rx
             .await;
-        println!("{:?}", res);
+        println!("Get: {:?}", res);
 
     });
 
@@ -46,6 +46,9 @@ async fn main() {
         };
 
         tx2.send(cmd).await.unwrap();
+        let res = resp_rx
+            .await;
+        println!("Set: {:?}", res);
     });
 
     // 等待接收到的命令
